@@ -130,13 +130,13 @@ margin:25px;
 text-align:center
 }
 .btn:not(:disabled):not(.disabled){
-margin-right:10px
+margin-right:10px;
 }
 .bio-job,.bio-text{
-font-size:18px
+font-size:18px;
 }
 .bio{
-margin:0 300px
+margin:0px;
 }
 #siginin-logo{
 width:350px;
