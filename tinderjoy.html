@@ -33,53 +33,18 @@
                 </div>
             </div>
             <div class="bio" style="padding-bottom:50px">
-                <h3 style="font-size: 35px;">Tarequr Rahman, 25</h3>
-                <p class="bio-job" style="font-size: 24px;"><i class="fa fa-briefcase"></i>&nbsp;Full Time Shagger</p>
-                <p><i style="font-size: 30px;" class="icon ion-chatbubble-working"></i><span id="bio" class="bio-text" style="font-family: 'Dosis', sans-serif; font-size: 30px;"> "Settle down boo-boo, this is the best thing that ever happend to you."</span></p>
+                <h3 id="name"style="font-size: 30px;">Tarequr Rahman, 25</h3>
+                <p class="bio-job" style="font-size: 20px;"><i class="fa fa-briefcase"></i>&nbsp;<span id="work">Full Time Shagger</span></p>
+                <p><i style="font-size: 24px;" class="icon ion-chatbubble-working"></i><span id="bio" class="bio-text" style="font-family: 'Dosis', sans-serif; font-size: 24px;"> "Settle down boo-boo, this is the best thing that ever happend to you."</span></p>
             </div>
         </div>
     </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        var n = 0;
-    function changeImage() {
-        if ( n == 0 ) {
-            document.images["user-img"].src = "assets/img/standing.jpg";
-            document.getElementById('bio').innerHTML = ' "Is your dad a terrorist? Cause you’re the bomb."';
-            n = 1;
-        }
-        else if ( n == 1 ) {
-            document.images["user-img"].src = "assets/img/why.jpg";
-            document.getElementById('bio').innerHTML = ' "Did it hurt? When you fell from heaven?"';
-            n = 2;
-        }
-        else if ( n == 2 ) {
-            document.images["user-img"].src = "assets/img/glass.jpg";
-            document.getElementById('bio').innerHTML = ' "Im not google but I have everything you’ve been searching for."';
-            n = 3;
-        }
-        else if ( n == 3 ) {
-            document.images["user-img"].src = "assets/img/gun.jpg";
-            document.getElementById('bio').innerHTML = '" Is it hot in here or is it just you?"';
-            n = 4;
-        }
-        else if ( n == 4 ) {
-            document.images["user-img"].src = "assets/img/biri.jpg";
-            document.getElementById('bio').innerHTML = ' "I eat booty like grocery"';
-            n = 5;
-        }
-        else {
-            document.images["user-img"].src = "assets/img/Snapchat-1572415492.jpg";
-            document.getElementById('bio').innerHTML = ' "Settle down boo-boo, this is the best thing that ever happend to you."';
-            n = 0;
-        }
-    }
-    function settle(){
-        alert("Donate all your blood and die")
-    }
-    </script>
+    <script src="assets/js/work.js"></script>
+
+    
 </body>
 
 </html>
