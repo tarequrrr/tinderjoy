@@ -8,13 +8,13 @@ function changeImage() {
     }
     else if ( n == 1 ) {
         document.images["user-img"].src = "assets/img/why.jpg";
-        document.getElementById('work').innerHTML = ' 9-5 slave';
+        document.getElementById('work').innerHTML = ' Communications Ambassador';
         document.getElementById('bio').innerHTML = ' "Did it hurt? When you fell from heaven?"';
         n = 2;
     }
     else if ( n == 2 ) {
         document.images["user-img"].src = "assets/img/glass.jpg";
-        document.getElementById('work').innerHTML = ' Troublemaker';
+        document.getElementById('work').innerHTML = ' Meme Lord';
         document.getElementById('bio').innerHTML = ' "Im not google but I have everything you’ve been searching for."';
         n = 3;
     }
@@ -32,12 +32,8 @@ function changeImage() {
     }
     else {
         document.images["user-img"].src = "assets/img/Snapchat-1572415492.jpg";
-        document.getElementById('work').innerHTML = ' Head of Potatoes';
-        document.getElementById('bio').innerHTML = ' "My doctor says I am lacking vitamin U."';
+        document.getElementById('work').innerHTML = ' Head of Bagels';
+        document.getElementById('bio').innerHTML = ' "Settle down boo-boo, this is the best thing that ever happend to you."';
         n = 0;
     }
-}
-
-function settle(){
-    alert("Donate all your blood and die")
 }

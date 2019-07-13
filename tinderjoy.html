@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/styles.min.css">
     <link href="https://fonts.googleapis.com/css?family=Dosis|Grand+Hotel&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -28,14 +29,26 @@
                 <h4 id="imgTitle">Look at this sexy savage!</h4>
                 <img id="user-img" class="img-fluid border rounded border-dark shadow user" src="assets/img/Snapchat-1572415492.jpg">
                 <div>
-                    <a class="btn btn-success settle" role="button" onclick="settle()" href="#">&nbsp;Settle&nbsp;<i class="fa fa-heart"></i>&nbsp;</a>
-                    <a class="btn btn-danger next" role="button" onclick="changeImage()" href="#">&nbsp; Next&nbsp;<i class="fa fa-remove"></i>&nbsp;</a>
+                    <div class="form-group">
+                        <a id="trigger" class="btn btn-success settle" style="color: white;">&nbsp;Settle&nbsp;<i class="fa fa-heart"></i>&nbsp;</a>
+                        <div id="content">
+                            <div style="height: 350px; background-size: cover; ;background-image: url(assets/img/source.gif)">
+                                <center><img style="padding:15px; margin-bottom: 20px; width: 150px; height: 130px;" src="assets/img/tinder.png">
+                                <h1 style="font-family: 'Dancing Script', cursive; font-weight: bolder; font-size: 75px;">It's a Match!</h1>
+                                <h3 style="font-family: 'Dancing Script', cursive; font-weight: bolder; font-size: 30px;">Donate all your blood & die</h3>
+                                </center>
+                            </div>
+                        </div>
+                        <a class="btn btn-danger next" role="button" onclick="changeImage()" href="#">&nbsp; Next&nbsp;<i class="fa fa-remove"></i>&nbsp;</a>
+                    </div>
+                </div>
+                    <!-- <a class="btn btn-success settle" role="button" onclick="settle()" href="#">&nbsp;Settle&nbsp;<i class="fa fa-heart"></i>&nbsp;</a> -->
                 </div>
             </div>
             <div class="bio" style="padding-bottom:50px">
                 <h3 id="name"style="font-size: 30px;">Tarequr Rahman, 25</h3>
                 <p class="bio-job" style="font-size: 20px;"><i class="fa fa-briefcase"></i>&nbsp;<span id="work">Full Time Shagger</span></p>
-                <p><i style="font-size: 24px;" class="icon ion-chatbubble-working"></i><span id="bio" class="bio-text" style="font-family: 'Dosis', sans-serif; font-size: 24px;"> "Settle down boo-boo, this is the best thing that ever happend to you."</span></p>
+                <p><i style="font-size: 24px;" class="icon ion-chatbubble-working"></i><span id="bio" class="bio-text" style="font-family: 'Dosis', sans-serif; font-size: 24px;"> "My doctor says I am lacking vitamin U."</span></p>
             </div>
         </div>
     </div>
@@ -43,8 +56,164 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/work.js"></script>
+    <script type="text/javascript">
+        // Create an immediately invoked functional expression to wrap our code
+(function() {
 
-    
+  // Define our constructor 
+  this.Modal = function() {
+
+    // Create global element references
+    this.closeButton = null;
+    this.modal = null;
+    this.overlay = null;
+
+    // Determine proper prefix
+    this.transitionEnd = transitionSelect();
+
+    // Define option defaults 
+    var defaults = {
+      autoOpen: false,
+      className: 'fade-and-drop',
+      closeButton: true,
+      content: "",
+      maxWidth: 600,
+      minWidth: 280,
+      overlay: true
+    }
+
+    // Create options by extending defaults with the passed in arugments
+    if (arguments[0] && typeof arguments[0] === "object") {
+      this.options = extendDefaults(defaults, arguments[0]);
+    }
+
+    if(this.options.autoOpen === true) this.open();
+
+  }
+
+  // Public Methods
+
+  Modal.prototype.close = function() {
+    var _ = this;
+    this.modal.className = this.modal.className.replace(" scotch-open", "");
+    this.overlay.className = this.overlay.className.replace(" scotch-open",
+      "");
+    this.modal.addEventListener(this.transitionEnd, function() {
+      _.modal.parentNode.removeChild(_.modal);
+    });
+    this.overlay.addEventListener(this.transitionEnd, function() {
+      if(_.overlay.parentNode) _.overlay.parentNode.removeChild(_.overlay);
+    });
+  }
+
+  Modal.prototype.open = function() {
+    buildOut.call(this);
+    initializeEvents.call(this);
+    window.getComputedStyle(this.modal).height;
+    this.modal.className = this.modal.className +
+      (this.modal.offsetHeight > window.innerHeight ?
+        " scotch-open scotch-anchored" : " scotch-open");
+    this.overlay.className = this.overlay.className + " scotch-open";
+  }
+
+  // Private Methods
+
+  function buildOut() {
+
+    var content, contentHolder, docFrag;
+
+    /*
+     * If content is an HTML string, append the HTML string.
+     * If content is a domNode, append its content.
+     */
+
+    if (typeof this.options.content === "string") {
+      content = this.options.content;
+    } else {
+      content = this.options.content.innerHTML;
+    }
+
+    // Create a DocumentFragment to build with
+    docFrag = document.createDocumentFragment();
+
+    // Create modal element
+    this.modal = document.createElement("div");
+    this.modal.className = "scotch-modal " + this.options.className;
+    this.modal.style.minWidth = this.options.minWidth + "px";
+    this.modal.style.maxWidth = this.options.maxWidth + "px";
+
+    // If closeButton option is true, add a close button
+    if (this.options.closeButton === true) {
+      this.closeButton = document.createElement("button");
+      this.closeButton.className = "scotch-close close-button";
+      this.closeButton.innerHTML = "&times;";
+      this.modal.appendChild(this.closeButton);
+    }
+
+    // If overlay is true, add one
+    if (this.options.overlay === true) {
+      this.overlay = document.createElement("div");
+      this.overlay.className = "scotch-overlay " + this.options.className;
+      docFrag.appendChild(this.overlay);
+    }
+
+    // Create content area and append to modal
+    contentHolder = document.createElement("div");
+    contentHolder.className = "scotch-content";
+    contentHolder.innerHTML = content;
+    this.modal.appendChild(contentHolder);
+
+    // Append modal to DocumentFragment
+    docFrag.appendChild(this.modal);
+
+    // Append DocumentFragment to body
+    document.body.appendChild(docFrag);
+
+  }
+
+  function extendDefaults(source, properties) {
+    var property;
+    for (property in properties) {
+      if (properties.hasOwnProperty(property)) {
+        source[property] = properties[property];
+      }
+    }
+    return source;
+  }
+
+  function initializeEvents() {
+
+    if (this.closeButton) {
+      this.closeButton.addEventListener('click', this.close.bind(this));
+    }
+
+    if (this.overlay) {
+      this.overlay.addEventListener('click', this.close.bind(this));
+    }
+
+  }
+
+  function transitionSelect() {
+    var el = document.createElement("div");
+    if (el.style.WebkitTransition) return "webkitTransitionEnd";
+    if (el.style.OTransition) return "oTransitionEnd";
+    return 'transitionend';
+  }
+
+}());
+
+var myContent = document.getElementById('content');
+
+var myModal = new Modal({
+  content: myContent
+});
+
+var triggerButton = document.getElementById('trigger');
+
+triggerButton.addEventListener('click', function() {
+  myModal.open();
+});
+    </script>
 </body>
 
 </html>
